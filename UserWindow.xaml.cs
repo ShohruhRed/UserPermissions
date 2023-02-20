@@ -32,6 +32,16 @@ namespace UserPermissions
         {
             string username = usernameBox.Text;
             string password = passBox.Password;
+
+            var userManager = new UserManager();
+            var result = userManager.CreateUser(username, password);
+
+            if (result.IsCompleted)
+            {
+                MessageBox.Show($"User {username} has been created");
+            }
+            else
+                MessageBox.Show("User has not been created");
         }
     }
 }
