@@ -41,12 +41,14 @@ namespace UserPermissions
 
         private void CreateGroupBtn(object sender, RoutedEventArgs e)
         {
-
+            var groupWindow = new GroupWindow();
+            groupWindow.Show();
         }
 
         private void GetPermissionsBtn(object sender, RoutedEventArgs e)
         {
-
+            var permissionWindow = new PermissionWindow();
+            permissionWindow.Show();
         }
     }
 }
