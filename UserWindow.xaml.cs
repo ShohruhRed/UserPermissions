@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UserPermissions.Data;
+using UserPermissions.Models;
 
 namespace UserPermissions
 {
@@ -18,10 +20,18 @@ namespace UserPermissions
     /// Interaction logic for UserWindow.xaml
     /// </summary>
     public partial class UserWindow : Window
-    {
+    {       
+
         public UserWindow()
         {
-            InitializeComponent();
+            InitializeComponent();            
+            
+        }
+
+        private void CreateUserBTn(object sender, RoutedEventArgs e)
+        {
+            string username = usernameBox.Text;
+            string password = passBox.Password;
         }
     }
 }

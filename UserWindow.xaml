@@ -7,6 +7,37 @@
         mc:Ignorable="d"
         Title="UserWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="createUserLb" Content="Create user" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="30"></Label>
+        <Label x:Name="usernameLabel" Content="Username:" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Right" FontSize="20"></Label>
+        <Label x:Name="passwordLabel" Content="Password: " Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="20"></Label>
+        <TextBox x:Name="usernameBox" 
+                 Grid.Row="1" Grid.Column="1" 
+                 Width="250" 
+                 Height="35" TextAlignment="Center" 
+                 VerticalContentAlignment="Center" 
+                 FontSize="18" VerticalAlignment="Top"   
+                 >
+        </TextBox>
+        <PasswordBox x:Name="passBox" 
+                     Grid.Row="1" 
+                     Grid.Column="1"  
+                     Width="250" 
+                     Height="35" 
+                     VerticalContentAlignment="Center"
+                     FontSize="18">        
+            
+        </PasswordBox>
+        <Button x:Name="createUserBtn" Grid.Column="1" Grid.Row="1" Width="150" Height="35" VerticalAlignment="Bottom" Content="Create" FontSize="18" Click="CreateUserBTn"></Button>
+
     </Grid>
 </Window>
