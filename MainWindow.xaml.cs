@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +26,27 @@ namespace UserPermissions
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void CreateUserBtn(object sender, RoutedEventArgs e)
+        {
+            var userWindow = new UserWindow();
+            userWindow.Show();
+        }
+
+        private string GetInfo()
+        {
+            return "access";
+        }
+
+        private void CreateGroupBtn(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GetPermissionsBtn(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
