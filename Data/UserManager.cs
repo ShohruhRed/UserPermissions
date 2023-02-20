@@ -7,7 +7,7 @@ namespace UserPermissions.Data
 {
     public class UserManager : IUserManager
     {
-        public async Task<bool> CreateUser(string userName, string password)
+        public bool CreateUser(string userName, string password)
         {
             DirectoryEntry AD = new DirectoryEntry("WinNT://" +
             Environment.MachineName + ",computer");
@@ -17,9 +17,13 @@ namespace UserPermissions.Data
             NewUser.CommitChanges();
             DirectoryEntry grp;
 
-            grp = AD.Children.Find("Guests", "group");
+            grp = AD.Children.Find("Гости", "group");
 
             if (grp != null) { grp.Invoke("Add", new object[] { NewUser.Path.ToString() }); }
+            else
+            {
+                return false;
+            }
 
             return true;
         }

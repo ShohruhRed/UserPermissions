@@ -9,7 +9,7 @@ namespace UserPermissions.Interfaces
 {
     internal interface IUserManager
     {
-        public Task<bool> CreateUser(string userName, string password);
+        public bool CreateUser(string userName, string password);
         public Task<bool> DeleteUser(string username);
     }
 }

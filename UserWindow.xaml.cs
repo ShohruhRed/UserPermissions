@@ -36,7 +36,7 @@ namespace UserPermissions
             var userManager = new UserManager();
             var result = userManager.CreateUser(username, password);
 
-            if (result.IsCompleted)
+            if (result)
             {
                 MessageBox.Show($"User {username} has been created");
             }
