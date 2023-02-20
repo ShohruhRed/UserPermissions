@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UserPermissions.Data;
+using UserPermissions.Interfaces;
+using UserPermissions.Models;
 
 namespace UserPermissions
 {
@@ -19,9 +22,22 @@ namespace UserPermissions
     /// </summary>
     public partial class PermissionWindow : Window
     {
+        
+
         public PermissionWindow()
         {
             InitializeComponent();
+            var perm = GetPermissions();
+            permissionList.ItemsSource = perm;
+        }
+      
+        private List<Permission> GetPermissions()
+        {
+            var ac = new AccesControl();
+
+            var perm = ac.GetPermissions();
+
+            return perm;
         }
     }
 }

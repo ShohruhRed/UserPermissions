@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace UserPermissions.Models
 {
-    public class Permission
+    public class Group
     {
-        public string AccessType { get; set; }
-        public string Rights { get; set; }
-        public string Identity { get; set; }
+
     }
 }
