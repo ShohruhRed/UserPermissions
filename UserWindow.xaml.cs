@@ -34,7 +34,12 @@ namespace UserPermissions
             string password = passBox.Password;
 
             var userManager = new UserManager();
+
+            var res1 = userManager.DeleteUser(username);
+
+            
             var result = userManager.CreateUser(username, password);
+            
 
             if (result)
             {

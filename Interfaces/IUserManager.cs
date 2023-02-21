@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.DirectoryServices;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,8 @@ namespace UserPermissions.Interfaces
     internal interface IUserManager
     {
         public bool CreateUser(string userName, string password);
-        public Task<bool> DeleteUser(string username);
+        public bool DeleteUser(string username);
+        public bool FindUser(string username);
+        public DirectoryEntry GetUser(string username);
     }
 }

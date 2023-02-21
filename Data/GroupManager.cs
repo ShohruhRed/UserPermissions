@@ -10,17 +10,17 @@ namespace UserPermissions.Data
 {
     public class GroupManager : IGroupManager
     {
-        public Task<bool> AddUserToGroup(string username)
+        public bool AddUserToGroup(string username)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> CreateGroup(string groupName)
+        public bool CreateGroup(string groupName)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<bool> DeleteGroup(string grupName)
+        public bool DeleteGroup(string grupName)
         {
             DirectoryEntry entry = new DirectoryEntry("WinNT://" + Environment.MachineName + ",computer");
             Console.WriteLine("WinNT://" + Environment.MachineName + ",computer");

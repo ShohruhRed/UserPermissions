@@ -8,8 +8,8 @@ namespace UserPermissions.Interfaces
 {
     public interface IGroupManager
     {
-        public Task<bool> CreateGroup(string groupName);
-        public Task<bool> DeleteGroup(string grupName); 
-        public Task<bool> AddUserToGroup(string username);
+        public bool CreateGroup(string groupName);
+        public bool DeleteGroup(string grupName); 
+        public bool AddUserToGroup(string username);
     }
 }
