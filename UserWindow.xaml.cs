@@ -27,27 +27,14 @@ namespace UserPermissions
             InitializeComponent();
         }
 
-        private void CreateUserBTn(object sender, RoutedEventArgs e)
+        private void CreateUserBtn(object sender, RoutedEventArgs e)
         {
-            string username = usernameBox.Text;
-            string password = passBox.Password;
-
-            var userManager = new UserManager();
-
-            var result = userManager.CreateUser(username, password);
-            
-
-            if (result)
-            {
-                MessageBox.Show($"User {username} has been created");
-            }
-            else
-                MessageBox.Show("User has not been created");
+            UserWin.Content = new CreatePage();
         }
 
-        private void deletePageBtn(object sender, RoutedEventArgs e)
+        private void DeleteUserBtn(object sender, RoutedEventArgs e)
         {
-            this.Content = new DeletePage();
+            UserWin.Content = new DeletePage();
         }
     }
 }

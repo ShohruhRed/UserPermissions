@@ -13,6 +13,13 @@ namespace UserPermissions.Data
     {
         public bool CreateUser(string userName, string password)
         {
+            var checkUserExists = FindUser(userName);
+
+            if (checkUserExists)
+            {
+                return false;
+            }
+
             DirectoryEntry AD = new DirectoryEntry("WinNT://" +
             Environment.MachineName + ",computer");
             DirectoryEntry NewUser = AD.Children.Add(userName, "user");
@@ -84,7 +91,6 @@ namespace UserPermissions.Data
 
             return true;
         }
-
         
     }    
 }

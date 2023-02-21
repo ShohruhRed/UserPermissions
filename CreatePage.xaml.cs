@@ -17,31 +17,31 @@ using UserPermissions.Data;
 namespace UserPermissions
 {
     /// <summary>
-    /// Interaction logic for DeletePage.xaml
+    /// Interaction logic for CreatePage.xaml
     /// </summary>
-    public partial class DeletePage : Page
+    public partial class CreatePage : Page
     {
-        public DeletePage()
+        public CreatePage()
         {
             InitializeComponent();
         }
 
-        private void DeleteUserBtn(object sender, RoutedEventArgs e)
+        private void CreateUserBTn(object sender, RoutedEventArgs e)
         {
             string username = usernameBox.Text;
+            string password = passBox.Password;
 
             var userManager = new UserManager();
-            var userExists = userManager.DeleteUser(username);
 
-            if (!userExists)
+            var result = userManager.CreateUser(username, password);
+
+
+            if (result)
             {
-                MessageBox.Show($"User with the name '{username}' does not exist");
+                MessageBox.Show($"User {username} has been created");
             }
             else
-            {
-                MessageBox.Show($"User '{username}' has been successfully deleted");
-            }            
-
+                MessageBox.Show($"User {username} is already exist");
         }
     }
 }
