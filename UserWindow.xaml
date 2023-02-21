@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:UserPermissions"
         mc:Ignorable="d"
         Title="UserWindow" Height="450" Width="800">
-    <Grid>
+    
+    <Grid x:Name="createWindow">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -38,6 +39,11 @@
             
         </PasswordBox>
         <Button x:Name="createUserBtn" Grid.Column="1" Grid.Row="1" Width="150" Height="35" VerticalAlignment="Bottom" Content="Create" FontSize="18" Click="CreateUserBTn"></Button>
-
+        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" Height="35" VerticalAlignment="Center" HorizontalAlignment="Right">
+            <Button x:Name="deleteBtn" Width="100" Height="25" VerticalAlignment="Center" Content="Delete User >>>" Click="deletePageBtn"></Button>
+        </StackPanel>
+        <Frame Name="createWindowFrame" Margin="0,35,0,0"></Frame>
+        
+       
     </Grid>
 </Window>

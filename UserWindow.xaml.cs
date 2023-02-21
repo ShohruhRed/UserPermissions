@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UserPermissions.Data;
 using UserPermissions.Models;
@@ -20,12 +21,10 @@ namespace UserPermissions
     /// Interaction logic for UserWindow.xaml
     /// </summary>
     public partial class UserWindow : Window
-    {       
-
+    {
         public UserWindow()
         {
-            InitializeComponent();            
-            
+            InitializeComponent();
         }
 
         private void CreateUserBTn(object sender, RoutedEventArgs e)
@@ -35,9 +34,6 @@ namespace UserPermissions
 
             var userManager = new UserManager();
 
-            var res1 = userManager.DeleteUser(username);
-
-            
             var result = userManager.CreateUser(username, password);
             
 
@@ -47,6 +43,11 @@ namespace UserPermissions
             }
             else
                 MessageBox.Show("User has not been created");
+        }
+
+        private void deletePageBtn(object sender, RoutedEventArgs e)
+        {
+            this.Content = new DeletePage();
         }
     }
 }
