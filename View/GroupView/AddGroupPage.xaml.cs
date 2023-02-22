@@ -30,8 +30,9 @@ namespace UserPermissions.View.GroupView
         {
             var groupManager = new GroupManager();
             string username = userName.Text;
+            string groupname = groupName.Text;
 
-            var isAdded = groupManager.AddUserToGroup(username);
+            var isAdded = groupManager.AddUserToGroup(username,groupname);
 
             if (!isAdded)
                 MessageBox.Show($"There is no such user or group");

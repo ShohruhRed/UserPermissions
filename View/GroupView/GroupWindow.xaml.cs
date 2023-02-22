@@ -38,5 +38,10 @@ namespace UserPermissions
         {
             GroupWin.Content = new DeleteGroupPage();
         }
+
+        private void AddToGroupBtn(object sender, RoutedEventArgs e)
+        {
+            GroupWin.Content = new AddGroupPage();
+        }
     }
 }

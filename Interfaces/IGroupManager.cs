@@ -11,7 +11,7 @@ namespace UserPermissions.Interfaces
     {
         public bool CreateGroup(string groupName);
         public bool DeleteGroup(string groupName); 
-        public bool AddUserToGroup(string username);
+        public bool AddUserToGroup(string username, string groupname);
         public List<string> GetAllGroups(); 
     }
 }

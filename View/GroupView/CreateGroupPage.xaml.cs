@@ -37,7 +37,7 @@ namespace UserPermissions.View.GroupView
             if (!addGroup)
                 MessageBox.Show($"Group with the name '{groupname}' is already exist");
             else
-                MessageBox.Show($"Group '{groupname}' has been added to group'");
+                MessageBox.Show($"Group '{groupname}' has been created'");
         }
     }
 }

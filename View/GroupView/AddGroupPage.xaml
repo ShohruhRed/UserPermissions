@@ -19,8 +19,9 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Label x:Name="AddUserGroupLb" Content="Add User" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="30"></Label>
+        <Label x:Name="AddUserGroupLb" Content="Add User to a group" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="28"></Label>
         <Label x:Name="usernameLabel" Content="User name:" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Right" FontSize="20"></Label>
+        <Label x:Name="groupnameLabel" Content="Group name:" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Top" HorizontalContentAlignment="Right" FontSize="20" VerticalAlignment="Center"></Label>
         <TextBox x:Name="userName" 
                  Grid.Row="1" Grid.Column="1" 
                  Width="250" 
@@ -29,6 +30,14 @@
                  FontSize="18" VerticalAlignment="Top"   
                  >
         </TextBox>
-        <Button x:Name="AddUserGroupBtn" Grid.Column="1" Grid.Row="1" Width="150" Height="35" VerticalAlignment="Center" Content="Add" FontSize="18" Click="AddUserGroupBtn_Click"/>
+        <TextBox x:Name="groupName" 
+                 Grid.Row="1" Grid.Column="1" 
+                 Width="250" 
+                 Height="35" TextAlignment="Center" 
+                 VerticalContentAlignment="Center" 
+                 FontSize="18" VerticalAlignment="Center"   
+        >
+        </TextBox>
+        <Button x:Name="AddUserGroupBtn" Grid.Column="1" Grid.Row="1" Width="150" Height="35" VerticalAlignment="Bottom" Content="Add" FontSize="18" Click="AddUserGroupBtn_Click"/>
     </Grid>
 </Page>

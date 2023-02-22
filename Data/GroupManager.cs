@@ -11,7 +11,7 @@ namespace UserPermissions.Data
 {
     public class GroupManager : IGroupManager
     {    
-        public bool AddUserToGroup(string username)
+        public bool AddUserToGroup(string username, string groupname)
         {
             var userManager = new UserManager();
             DirectoryEntry AD = new DirectoryEntry("WinNT://" +
@@ -27,7 +27,7 @@ namespace UserPermissions.Data
             var user = userManager.GetUser(username);
           
 
-            grp = AD.Children.Find("Гости", "group");
+            grp = AD.Children.Find(groupname, "group");
             if (grp != null) { grp.Invoke("Add", new object[] { user.Path.ToString() }); }
             else
                 return false;
