@@ -7,19 +7,21 @@
         mc:Ignorable="d"
         Title="PermissionWindow" Height="220" Width="450">
     <Grid Background="Lavender">
-        <ListView Name="permissionList" ItemsSource="{DynamicResource ResourceKey=perm}" >
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=AccessType}">Access Type</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Rights}" Width="100">Rights</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Identity}">Identity</GridViewColumn>
-                </GridView>
-            </ListView.View>
-            <ListView.Resources>
-                <col:ArrayList x:Key="perm">
-                    <local1:Permission AccessType="" Rights="" Identity="" />                   
-                </col:ArrayList>
-            </ListView.Resources>
-        </ListView>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Column="1" Grid.Row="1" Content="Set access" Width="130" Height="30" Click="SetAccessBtn" VerticalAlignment="Top"/>
+            
+        <Button Grid.Column="1" Grid.Row="1" Content="Cuurent access status" Width="130" Height="30" Click="Button_Click" VerticalAlignment="Bottom"/>
+
+        <Frame x:Name="PermissionWin" Margin="0,35,0,0" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>

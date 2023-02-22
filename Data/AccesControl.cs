@@ -14,6 +14,16 @@ namespace UserPermissions.Data
 {
     class AccesControl : IAccessControl
     {
+        public void AddDirectorySecurity(string DirectoryName, string Account, FileSystemRights Rights, AccessControlType ControlType)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveDirectorySecurity(string DirectoryName, string Account, FileSystemRights Rights, AccessControlType ControlType)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Permission> GetPermissions()
         {
             var permissions = new List<Permission>();
@@ -40,6 +50,6 @@ namespace UserPermissions.Data
             }           
 
             return permissions;
-        }
+        }        
     }
 }

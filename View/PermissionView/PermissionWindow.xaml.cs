@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using UserPermissions.Data;
 using UserPermissions.Interfaces;
 using UserPermissions.Models;
+using UserPermissions.View.PermissionView;
 
 namespace UserPermissions
 {
@@ -26,18 +27,19 @@ namespace UserPermissions
 
         public PermissionWindow()
         {
-            InitializeComponent();
-            var perm = GetPermissions();
-            permissionList.ItemsSource = perm;
+            InitializeComponent();            
         }
-      
-        private List<Permission> GetPermissions()
+        
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var ac = new AccesControl();
+            var currentState = new PermListWindow();
+            currentState.Show();
+        }
 
-            var perm = ac.GetPermissions();
-
-            return perm;
+        private void SetAccessBtn(object sender, RoutedEventArgs e)
+        {
+            var accWin = new AccessWindow();
+            accWin.Show();
         }
     }
 }
