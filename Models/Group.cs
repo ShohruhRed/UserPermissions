@@ -8,6 +8,7 @@ namespace UserPermissions.Models
 {
     public class Group
     {
-
+        public string Username { get; set; }
+        public string GroupName { get; set; }
     }
 }

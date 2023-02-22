@@ -8,7 +8,7 @@ using UserPermissions.Models;
 
 namespace UserPermissions.Interfaces
 {
-    internal interface IUserManager
+    public interface IUserManager
     {
         public bool CreateUser(string userName, string password);
         public bool DeleteUser(string username);
