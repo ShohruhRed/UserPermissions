@@ -7,10 +7,4 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="View\GroupView\" />
-    <Folder Include="View\UserView\" />
-    <Folder Include="View\PermissionView\" />
-  </ItemGroup>
-
 </Project>

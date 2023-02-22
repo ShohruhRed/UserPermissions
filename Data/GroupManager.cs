@@ -25,7 +25,6 @@ namespace UserPermissions.Data
                 return false;
             }
             var user = userManager.GetUser(username);
-
           
 
             grp = AD.Children.Find("Гости", "group");
@@ -53,11 +52,17 @@ namespace UserPermissions.Data
             return true;
         }
 
-        public bool DeleteGroup(string grupName)
+        public bool DeleteGroup(string groupName)
         {
+            var groups = GetAllGroups();
+
+            if (!groups.Contains(groupName))
+            {
+                return false;
+            }
             DirectoryEntry entry = new DirectoryEntry("WinNT://" + Environment.MachineName + ",computer");
             Console.WriteLine("WinNT://" + Environment.MachineName + ",computer");
-            DirectoryEntry group = new DirectoryEntry($"WinNT://{Environment.MachineName}/{grupName},group");
+            DirectoryEntry group = new DirectoryEntry($"WinNT://{Environment.MachineName}/{groupName},group");
             entry.Children.Remove(group);
 
             return true;
@@ -65,26 +70,35 @@ namespace UserPermissions.Data
 
         public List<string> GetAllGroups()
         {
-            var users = new List<string>();
             var groups = new List<string>();
-            var usersWithGroups = new List<Group>();
-            string path = string.Format("WinNT://{0},computer", Environment.MachineName);
+            //var users = new List<string>();
 
-            using (DirectoryEntry computerEntry = new DirectoryEntry(path))
+            //var usersWithGroups = new List<Group>();
+
+            DirectoryEntry machine = new DirectoryEntry("WinNT://" + Environment.MachineName + ",Computer");
+            foreach (DirectoryEntry child in machine.Children)
             {
-                IEnumerable<string> userNames = computerEntry.Children
-                    .Cast<DirectoryEntry>()
-                    .Where(childEntry => childEntry.SchemaClassName == "User")
-                    .Select(userEntry => userEntry.Name);
-
-                foreach (var user in userNames)
+                if (child.SchemaClassName == "Group")
                 {
-                    users.Add(user);
+                    groups.Add(child.Name);
                 }
-            }        
-           
+            }
+            //string path = string.Format("WinNT://{0},computer", Environment.MachineName);
 
-            return users;
+            //using (DirectoryEntry computerEntry = new DirectoryEntry(path))
+            //{
+            //    IEnumerable<string> userNames = computerEntry.Children
+            //        .Cast<DirectoryEntry>()
+            //        .Where(childEntry => childEntry.SchemaClassName == "User")
+            //        .Select(userEntry => userEntry.Name);
+
+            //    foreach (var user in userNames)
+            //    {
+            //        users.Add(user);
+            //    }
+            //}     
+
+            return groups;
         }
     }
 }

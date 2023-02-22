@@ -10,7 +10,7 @@ namespace UserPermissions.Interfaces
     public interface IGroupManager
     {
         public bool CreateGroup(string groupName);
-        public bool DeleteGroup(string grupName); 
+        public bool DeleteGroup(string groupName); 
         public bool AddUserToGroup(string username);
         public List<string> GetAllGroups(); 
     }

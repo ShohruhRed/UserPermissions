@@ -7,9 +7,11 @@
         mc:Ignorable="d"
         Title="GroupWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="textBoxMain" Width="400" Height="200">
-            
-        </TextBox>
-        <Button Width="50" Height="50" VerticalAlignment="Bottom" Click="Button_Click"/>
+        <StackPanel Orientation="Horizontal" Height="35" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <Button Content="Create group" MinWidth="100" Click="CreateGroupBtn"/>
+            <Button Content="Delete group" MinWidth="100" Click="DeleteGroupBtn" Margin="10,0,0,0"/>
+        </StackPanel>
+
+        <Frame x:Name="GroupWin" Margin="0,35,0,0" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>

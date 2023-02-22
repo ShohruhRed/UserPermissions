@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using UserPermissions.Data;
 using UserPermissions.Interfaces;
+using UserPermissions.View.GroupView;
 
 namespace UserPermissions
 {
@@ -26,20 +27,16 @@ namespace UserPermissions
         {
             InitializeComponent();
            
+        }        
+
+        private void CreateGroupBtn(object sender, RoutedEventArgs e)
+        {
+            GroupWin.Content = new CreateGroupPage();
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private void DeleteGroupBtn(object sender, RoutedEventArgs e)
         {
-            //TODO: implemet DI
-            var groupManager = new GroupManager();
-            string username = textBoxMain.Text;
-
-            var addGroup = groupManager.AddUserToGroup(username);
-
-            if (!addGroup)
-                MessageBox.Show($"User with the name '{username}' does not exist");
-            else
-                MessageBox.Show($"User '{username} has been added to group'");
+            GroupWin.Content = new DeleteGroupPage();
         }
     }
 }
