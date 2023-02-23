@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserPermissions"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="300" Width="500">
+    <Grid Background="Bisque">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -37,5 +37,6 @@
                 FontSize="15" 
                 Click="GetPermissionsBtn">            
         </Button>
+        <Label Grid.Row="0" Grid.Column="1" Content="MAIN" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
     </Grid>
 </Window>

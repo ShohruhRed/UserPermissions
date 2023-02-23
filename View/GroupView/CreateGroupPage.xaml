@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CreateGroupPage">
 
-    <Grid Background="White">
+    <Grid Background="DarkCyan">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -26,9 +26,10 @@
                  Width="250" 
                  Height="35" TextAlignment="Center" 
                  VerticalContentAlignment="Center" 
-                 FontSize="18" VerticalAlignment="Top"   
+                 FontSize="18" VerticalAlignment="Top" 
+                 BorderBrush="Chartreuse"
                  >
         </TextBox>
-        <Button x:Name="createGroupBtn" Grid.Column="1" Grid.Row="1" Width="150" Height="35" VerticalAlignment="Center" Content="Create" FontSize="18" Click="CreateGroupBtn"/>
+        <Button x:Name="createGroupBtn" BorderBrush="Chartreuse" Background="LightCyan" Grid.Column="1" Grid.Row="1" Width="150" Height="35" VerticalAlignment="Center" Content="Create" FontSize="18" Click="CreateGroupBtn"/>
     </Grid>
 </Page>

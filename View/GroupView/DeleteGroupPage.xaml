@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DeleteGroupPage">
 
-    <Grid Background="White">
+    <Grid Background="DarkCyan">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -26,9 +26,10 @@
                  Width="250" 
                  Height="35" TextAlignment="Center" 
                  VerticalContentAlignment="Center" 
-                 FontSize="18" VerticalAlignment="Top"   
+                 FontSize="18" VerticalAlignment="Top" 
+                 BorderBrush="Chartreuse"
                  >
         </TextBox>
-        <Button x:Name="deleteGroupBtn" Grid.Column="1" Grid.Row="1" Width="150" Height="35" VerticalAlignment="Center" Content="Delete" FontSize="18" Click="DeleteGroupBtn"/>
+        <Button x:Name="deleteGroupBtn" BorderBrush="Chartreuse" Background="LightCyan" Grid.Column="1" Grid.Row="1" Width="150" Height="35" VerticalAlignment="Center" Content="Delete" FontSize="18" Click="DeleteGroupBtn"/>
     </Grid>
 </Page>

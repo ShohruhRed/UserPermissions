@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UserPermissions.View.PermissionView"
         mc:Ignorable="d"
         Title="AccessWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="CadetBlue">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -26,26 +26,37 @@
                  Width="250" 
                  Height="35" TextAlignment="Center" 
                  VerticalContentAlignment="Center" 
-                 FontSize="18" VerticalAlignment="Top"   
+                 FontSize="18" VerticalAlignment="Top" 
+                 BorderBrush="DarkSlateBlue"
                  >
         </TextBox>
-        <TextBox x:Name="fullPath" 
+        <TextBox x:Name="fullPathBtn" 
                      Grid.Row="1" 
                      Grid.Column="1"  
                      Width="250" 
                      Height="35" 
                      VerticalContentAlignment="Center"
-                     FontSize="18">
+                     FontSize="18"
+                     BorderBrush="DarkSlateBlue"
+                 >            
         </TextBox>
 
-        <Button Grid.Column="1" Grid.Row="1" Content="Set" Width="100" Height="30" Click="SetAccessBtn" VerticalAlignment="Bottom"/>
-        <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Top" >
-            <RadioButton x:Name="fullControlBtn" GroupName="access" FontSize="20"  HorizontalAlignment="Left" Content="Full Control" VerticalContentAlignment="Center" IsChecked="False" />
-            <RadioButton x:Name="rwOBtn" GroupName="access" FontSize="20"  HorizontalAlignment="Left"  Content="Read Write owner" VerticalContentAlignment="Center" IsChecked="False" />
-            <RadioButton x:Name="rwABtn" GroupName="access" FontSize="20"  HorizontalAlignment="Left" Content="Read Write admin" VerticalContentAlignment="Center" IsChecked="False" />
-            <RadioButton x:Name="rwUBtn" GroupName="access" FontSize="20"  HorizontalAlignment="Left" Content="Read Write user" VerticalContentAlignment="Center" IsChecked="False" />
-            <RadioButton x:Name="readOnlyBtn" GroupName="access" FontSize="20"  HorizontalAlignment="Left" Content="Read Only" VerticalContentAlignment="Center" IsChecked="False" />
-        </StackPanel>
-       
+        <Button Grid.Column="1" Grid.Row="1" Content="Set" Width="100" Height="30" Click="SetAccessBtn" VerticalAlignment="Bottom" Background="DarkSlateBlue" Foreground="White" />
+        <GroupBox x:Name="methodBox" Header="2. Select an access method" Padding="5" Grid.Column="2" Grid.Row="1" Width="200" HorizontalAlignment="Right" BorderBrush="DarkSlateBlue">
+            <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Top" >
+                <RadioButton x:Name="fullControlBtn" GroupName="accessMethod" FontSize="17"  HorizontalAlignment="Left" Content="Full Control" VerticalContentAlignment="Center" IsChecked="False" />
+                <RadioButton x:Name="rwOBtn" GroupName="accessMethod" FontSize="17"  HorizontalAlignment="Left"  Content="Read Write Execute" VerticalContentAlignment="Center" IsChecked="False" />
+                <RadioButton x:Name="rwABtn" GroupName="accessMethod" FontSize="17"  HorizontalAlignment="Left" Content="Read Write" VerticalContentAlignment="Center" IsChecked="False" />
+                <RadioButton x:Name="rwUBtn" GroupName="accessMethod" FontSize="17"  HorizontalAlignment="Left" Content="Read" VerticalContentAlignment="Center" IsChecked="False" />
+                <RadioButton x:Name="readOnlyBtn" GroupName="accessMethod" FontSize="17"  HorizontalAlignment="Left" Content="Write" VerticalContentAlignment="Center" IsChecked="False" />
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="1. Access" Padding="5" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Width="160" BorderBrush="DarkSlateBlue">
+            <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <RadioButton x:Name="allowBtn" GroupName="access" FontSize="17"  HorizontalAlignment="Left" Content="Allow" VerticalContentAlignment="Center" IsChecked="False" />
+                <RadioButton x:Name="denyBtn" GroupName="access" FontSize="17"  HorizontalAlignment="Left"  Content="Deny" VerticalContentAlignment="Center" IsChecked="False" />
+                <RadioButton x:Name="resetBtn" GroupName="access" FontSize="17"  HorizontalAlignment="Left"  Content="Reset" VerticalContentAlignment="Center" IsChecked="False" />
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </Window>

@@ -30,11 +30,21 @@ namespace UserPermissions.View.PermissionView
 
         private List<Permission> GetPermissions()
         {
-            var ac = new AccesControl();
+            try
+            {
+                var ac = new AccesControl();
 
-            var perm = ac.GetPermissions();
-
-            return perm;
+                var perm = ac.GetPermissions();
+                return perm;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+            var list = new List<Permission>();
+            return list;             
+            
         }
     }
 }

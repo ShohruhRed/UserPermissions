@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UserPermissions"
         mc:Ignorable="d"
         Title="GroupWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="DarkCyan">
         <StackPanel Orientation="Horizontal" Height="35" VerticalAlignment="Top" HorizontalAlignment="Center">
             <Button Content="Add to group" MinWidth="100" Click="AddToGroupBtn"/>
             <Button Content="Create group" MinWidth="100" Click="CreateGroupBtn" Margin="10,0,0,0"/>
@@ -14,5 +14,6 @@
         </StackPanel>
 
         <Frame x:Name="GroupWin" Margin="0,35,0,0" NavigationUIVisibility="Hidden" />
+        <Label x:Name="groupLabel" VerticalAlignment="Center" Content="Use the navigation button at the top to move between windows" HorizontalAlignment="Center" FontSize="24"/>
     </Grid>
 </Window>

@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:UserPermissions"
         mc:Ignorable="d"
         Title="UserWindow" Height="450" Width="800">
-    
-    <Grid>
+
+    <Grid Background="AliceBlue">
         <StackPanel Orientation="Horizontal" Height="35" VerticalAlignment="Top" HorizontalAlignment="Center">
             <Button Content="Create user" MinWidth="100" Click="CreateUserBtn"/>
             <Button Content="Delete user" MinWidth="100" Click="DeleteUserBtn" Margin="10,0,0,0"/>
         </StackPanel>
         
         <Frame x:Name="UserWin" Margin="0,35,0,0" NavigationUIVisibility="Hidden" />
-
+        <Label x:Name="userLabel" VerticalAlignment="Center" Content="Use the navigation button at the top to move between windows" HorizontalAlignment="Center" FontSize="24"/>
     </Grid>
 </Window>

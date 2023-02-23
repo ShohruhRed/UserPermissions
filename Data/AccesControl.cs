@@ -16,12 +16,38 @@ namespace UserPermissions.Data
     {
         public void AddDirectorySecurity(string DirectoryName, string Account, FileSystemRights Rights, AccessControlType ControlType)
         {
-            throw new NotImplementedException();
+            // Create a new DirectoryInfo object.
+            DirectoryInfo dInfo = new DirectoryInfo(DirectoryName);
+
+            // Get a DirectorySecurity object that represents the
+            // current security settings.
+            DirectorySecurity dSecurity = dInfo.GetAccessControl();
+
+            // Add the FileSystemAccessRule to the security settings.
+            dSecurity.AddAccessRule(new FileSystemAccessRule(Account,
+                                                            Rights,
+                                                            ControlType));
+
+            // Set the new access settings.
+            dInfo.SetAccessControl(dSecurity);
         }
 
         public void RemoveDirectorySecurity(string DirectoryName, string Account, FileSystemRights Rights, AccessControlType ControlType)
         {
-            throw new NotImplementedException();
+            // Create a new DirectoryInfo object.
+            DirectoryInfo dInfo = new DirectoryInfo(DirectoryName);
+
+            // Get a DirectorySecurity object that represents the
+            // current security settings.
+            DirectorySecurity dSecurity = dInfo.GetAccessControl();
+
+            // Add the FileSystemAccessRule to the security settings.
+            dSecurity.RemoveAccessRule(new FileSystemAccessRule(Account,
+                                                            Rights,
+                                                            ControlType));
+
+            // Set the new access settings.
+            dInfo.SetAccessControl(dSecurity);
         }
 
         public List<Permission> GetPermissions()

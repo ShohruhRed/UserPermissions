@@ -30,11 +30,13 @@ namespace UserPermissions
         private void CreateUserBtn(object sender, RoutedEventArgs e)
         {
             UserWin.Content = new CreatePage();
+            userLabel.Content = string.Empty;
         }
 
         private void DeleteUserBtn(object sender, RoutedEventArgs e)
         {
             UserWin.Content = new DeletePage();
+            userLabel.Content = string.Empty;
         }
     }
 }

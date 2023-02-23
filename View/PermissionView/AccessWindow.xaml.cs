@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UserPermissions.Data;
 
 namespace UserPermissions.View.PermissionView
 {
@@ -26,37 +27,138 @@ namespace UserPermissions.View.PermissionView
 
         private void SetAccessBtn(object sender, RoutedEventArgs e)
         {
+            string username = usernameBox.Text;
+            string fullPath = fullPathBtn.Text;
+            if(!allowBtn.IsChecked.Value && !denyBtn.IsChecked.Value && !resetBtn.IsChecked.Value)
+            {
+                MessageBox.Show("No access selected", "Message", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             if(!fullControlBtn.IsChecked.Value 
                 && !rwOBtn.IsChecked.Value 
                 && !rwABtn.IsChecked.Value 
                 && !rwUBtn.IsChecked.Value 
                 && !readOnlyBtn.IsChecked.Value)
             {
-                MessageBox.Show("Access method not selected");
+                MessageBox.Show("Access method not selected", "Message", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-            
-            if (fullControlBtn.IsChecked.Value)
+            var accessControl = new AccesControl();
+
+            if (denyBtn.IsChecked.Value)
             {
-                
+                if (fullControlBtn.IsChecked.Value)
+                {
+                    accessControl.AddDirectorySecurity(fullPath, username,
+                        System.Security.AccessControl.FileSystemRights.FullControl, System.Security.AccessControl.AccessControlType.Deny);
+                }
+                if (rwOBtn.IsChecked.Value)
+                {
+                    accessControl.AddDirectorySecurity(fullPath, username,
+                        System.Security.AccessControl.FileSystemRights.ReadAndExecute 
+                        | System.Security.AccessControl.FileSystemRights.ExecuteFile
+                        | System.Security.AccessControl.FileSystemRights.Write, 
+                        System.Security.AccessControl.AccessControlType.Deny);
+                }
+                if (rwABtn.IsChecked.Value)
+                {
+                    accessControl.AddDirectorySecurity(fullPath, username,
+                        System.Security.AccessControl.FileSystemRights.Read | 
+                        System.Security.AccessControl.FileSystemRights.Write, 
+                        System.Security.AccessControl.AccessControlType.Deny);
+                }
+                if (rwUBtn.IsChecked.Value)
+                {
+                    accessControl.AddDirectorySecurity(fullPath, username,
+                        System.Security.AccessControl.FileSystemRights.Read, 
+                        System.Security.AccessControl.AccessControlType.Deny);
+                }
+                if (readOnlyBtn.IsChecked.Value)
+                {
+                    accessControl.AddDirectorySecurity(fullPath, username,
+                        System.Security.AccessControl.FileSystemRights.Write, 
+                        System.Security.AccessControl.AccessControlType.Deny);
+                }
             }
-            if (rwOBtn.IsChecked.Value)
+
+            if (allowBtn.IsChecked.Value)
             {
-                
+                if (fullControlBtn.IsChecked.Value)
+                {
+                    accessControl.AddDirectorySecurity(fullPath, username,
+                        System.Security.AccessControl.FileSystemRights.FullControl, 
+                        System.Security.AccessControl.AccessControlType.Allow);
+                }
+                if (rwOBtn.IsChecked.Value)
+                {
+                    accessControl.AddDirectorySecurity(fullPath, username,
+                        System.Security.AccessControl.FileSystemRights.ReadAndExecute
+                        | System.Security.AccessControl.FileSystemRights.ExecuteFile
+                        | System.Security.AccessControl.FileSystemRights.Write,
+                        System.Security.AccessControl.AccessControlType.Allow);
+                }
+                if (rwABtn.IsChecked.Value)
+                {
+                    accessControl.AddDirectorySecurity(fullPath, username,
+                       System.Security.AccessControl.FileSystemRights.Read |
+                       System.Security.AccessControl.FileSystemRights.Write,
+                       System.Security.AccessControl.AccessControlType.Allow);
+                }
+                if (rwUBtn.IsChecked.Value)
+                {
+                    accessControl.AddDirectorySecurity(fullPath, username,
+                       System.Security.AccessControl.FileSystemRights.Read,
+                       System.Security.AccessControl.AccessControlType.Allow);
+
+                }
+                if (readOnlyBtn.IsChecked.Value)
+                {
+                    accessControl.AddDirectorySecurity(fullPath, username,
+                        System.Security.AccessControl.FileSystemRights.Write, 
+                        System.Security.AccessControl.AccessControlType.Allow);
+                }
             }
-            if (rwABtn.IsChecked.Value)
+
+            if (resetBtn.IsChecked.Value)
             {
-                
+                if (fullControlBtn.IsChecked.Value)
+                {
+                    accessControl.RemoveDirectorySecurity(fullPath, username,
+                        System.Security.AccessControl.FileSystemRights.FullControl,
+                        System.Security.AccessControl.AccessControlType.Deny);
+                }
+                if (rwOBtn.IsChecked.Value)
+                {
+                    accessControl.RemoveDirectorySecurity(fullPath, username,
+                        System.Security.AccessControl.FileSystemRights.ReadAndExecute
+                        | System.Security.AccessControl.FileSystemRights.ExecuteFile
+                        | System.Security.AccessControl.FileSystemRights.Write,
+                        System.Security.AccessControl.AccessControlType.Deny);
+                }
+                if (rwABtn.IsChecked.Value)
+                {
+                    accessControl.RemoveDirectorySecurity(fullPath, username,
+                       System.Security.AccessControl.FileSystemRights.Read |
+                       System.Security.AccessControl.FileSystemRights.Write,
+                       System.Security.AccessControl.AccessControlType.Deny);
+                }
+                if (rwUBtn.IsChecked.Value)
+                {
+                    accessControl.RemoveDirectorySecurity(fullPath, username,
+                       System.Security.AccessControl.FileSystemRights.Read,
+                       System.Security.AccessControl.AccessControlType.Deny);
+
+                }
+                if (readOnlyBtn.IsChecked.Value)
+                {
+                    accessControl.RemoveDirectorySecurity(fullPath, username,
+                        System.Security.AccessControl.FileSystemRights.Write,
+                        System.Security.AccessControl.AccessControlType.Deny);
+                }
             }
-            if (rwUBtn.IsChecked.Value)
-            {
-                
-            }
-            if (readOnlyBtn.IsChecked.Value)
-            {
-                
-            }
+
         }
     }
 }

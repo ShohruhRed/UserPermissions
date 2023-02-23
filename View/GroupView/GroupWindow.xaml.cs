@@ -32,16 +32,20 @@ namespace UserPermissions
         private void CreateGroupBtn(object sender, RoutedEventArgs e)
         {
             GroupWin.Content = new CreateGroupPage();
+            groupLabel.Content = string.Empty;
+
         }
 
         private void DeleteGroupBtn(object sender, RoutedEventArgs e)
         {
             GroupWin.Content = new DeleteGroupPage();
+            groupLabel.Content = string.Empty;
         }
 
         private void AddToGroupBtn(object sender, RoutedEventArgs e)
         {
             GroupWin.Content = new AddGroupPage();
+            groupLabel.Content = string.Empty;
         }
     }
 }
