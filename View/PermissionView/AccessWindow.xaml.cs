@@ -53,6 +53,7 @@ namespace UserPermissions.View.PermissionView
                 {
                     accessControl.AddDirectorySecurity(fullPath, username,
                         System.Security.AccessControl.FileSystemRights.FullControl, System.Security.AccessControl.AccessControlType.Deny);
+                    return;
                 }
                 if (rwOBtn.IsChecked.Value)
                 {
@@ -61,6 +62,7 @@ namespace UserPermissions.View.PermissionView
                         | System.Security.AccessControl.FileSystemRights.ExecuteFile
                         | System.Security.AccessControl.FileSystemRights.Write, 
                         System.Security.AccessControl.AccessControlType.Deny);
+                    return;
                 }
                 if (rwABtn.IsChecked.Value)
                 {
@@ -68,19 +70,22 @@ namespace UserPermissions.View.PermissionView
                         System.Security.AccessControl.FileSystemRights.Read | 
                         System.Security.AccessControl.FileSystemRights.Write, 
                         System.Security.AccessControl.AccessControlType.Deny);
+                    return;
                 }
                 if (rwUBtn.IsChecked.Value)
                 {
                     accessControl.AddDirectorySecurity(fullPath, username,
                         System.Security.AccessControl.FileSystemRights.Read, 
                         System.Security.AccessControl.AccessControlType.Deny);
+                    return;
                 }
                 if (readOnlyBtn.IsChecked.Value)
                 {
                     accessControl.AddDirectorySecurity(fullPath, username,
                         System.Security.AccessControl.FileSystemRights.Write, 
                         System.Security.AccessControl.AccessControlType.Deny);
-                }
+                    return;
+                }               
             }
 
             if (allowBtn.IsChecked.Value)
@@ -90,6 +95,7 @@ namespace UserPermissions.View.PermissionView
                     accessControl.AddDirectorySecurity(fullPath, username,
                         System.Security.AccessControl.FileSystemRights.FullControl, 
                         System.Security.AccessControl.AccessControlType.Allow);
+                    return;
                 }
                 if (rwOBtn.IsChecked.Value)
                 {
@@ -98,6 +104,7 @@ namespace UserPermissions.View.PermissionView
                         | System.Security.AccessControl.FileSystemRights.ExecuteFile
                         | System.Security.AccessControl.FileSystemRights.Write,
                         System.Security.AccessControl.AccessControlType.Allow);
+                    return;
                 }
                 if (rwABtn.IsChecked.Value)
                 {
@@ -105,12 +112,14 @@ namespace UserPermissions.View.PermissionView
                        System.Security.AccessControl.FileSystemRights.Read |
                        System.Security.AccessControl.FileSystemRights.Write,
                        System.Security.AccessControl.AccessControlType.Allow);
+                    return;
                 }
                 if (rwUBtn.IsChecked.Value)
                 {
                     accessControl.AddDirectorySecurity(fullPath, username,
                        System.Security.AccessControl.FileSystemRights.Read,
                        System.Security.AccessControl.AccessControlType.Allow);
+                    return;
 
                 }
                 if (readOnlyBtn.IsChecked.Value)
@@ -118,7 +127,8 @@ namespace UserPermissions.View.PermissionView
                     accessControl.AddDirectorySecurity(fullPath, username,
                         System.Security.AccessControl.FileSystemRights.Write, 
                         System.Security.AccessControl.AccessControlType.Allow);
-                }
+                    return;
+                }               
             }
 
             if (resetBtn.IsChecked.Value)
@@ -128,6 +138,7 @@ namespace UserPermissions.View.PermissionView
                     accessControl.RemoveDirectorySecurity(fullPath, username,
                         System.Security.AccessControl.FileSystemRights.FullControl,
                         System.Security.AccessControl.AccessControlType.Deny);
+                    return;
                 }
                 if (rwOBtn.IsChecked.Value)
                 {
@@ -136,6 +147,7 @@ namespace UserPermissions.View.PermissionView
                         | System.Security.AccessControl.FileSystemRights.ExecuteFile
                         | System.Security.AccessControl.FileSystemRights.Write,
                         System.Security.AccessControl.AccessControlType.Deny);
+                    return;
                 }
                 if (rwABtn.IsChecked.Value)
                 {
@@ -143,22 +155,23 @@ namespace UserPermissions.View.PermissionView
                        System.Security.AccessControl.FileSystemRights.Read |
                        System.Security.AccessControl.FileSystemRights.Write,
                        System.Security.AccessControl.AccessControlType.Deny);
+                    return;
                 }
                 if (rwUBtn.IsChecked.Value)
                 {
                     accessControl.RemoveDirectorySecurity(fullPath, username,
                        System.Security.AccessControl.FileSystemRights.Read,
                        System.Security.AccessControl.AccessControlType.Deny);
-
+                    return;
                 }
                 if (readOnlyBtn.IsChecked.Value)
                 {
                     accessControl.RemoveDirectorySecurity(fullPath, username,
                         System.Security.AccessControl.FileSystemRights.Write,
                         System.Security.AccessControl.AccessControlType.Deny);
-                }
+                    return;
+                }                
             }
-
         }
     }
 }

@@ -31,6 +31,24 @@ namespace UserPermissions
             string username = usernameBox.Text;
             string password = passBox.Password;
 
+            if (String.IsNullOrEmpty(username) | String.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("The 'username' and 'password' fields should not be empty", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (username.Length < 2 | username.Length > 15)
+            {
+                MessageBox.Show("The 'username' must contain at least 2 and no more than 15 characters", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (password.Length < 2 | password.Length > 8)
+            {
+                MessageBox.Show("The 'password' must contain at least 2 and no more than 8 characters", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+                
+
             var userManager = new UserManager();
 
             var result = userManager.CreateUser(username, password);

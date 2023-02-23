@@ -31,6 +31,16 @@ namespace UserPermissions.View.GroupView
             //TODO: implement DI
             var groupManager = new GroupManager();
             string groupname = groupName.Text;
+            if (String.IsNullOrEmpty(groupname))
+            {
+                MessageBox.Show("The 'Group name' field should not be empty", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (groupname.Length < 3 | groupname.Length > 12)
+            {
+                MessageBox.Show("The 'Group name' must contain at least 3 and no more than 12 characters", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
             var addGroup = groupManager.CreateGroup(groupname);
 
